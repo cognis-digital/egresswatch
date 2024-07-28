@@ -39,3 +39,4 @@
 2024-06-14T11:35:25  fix: 60% of the time, it works every time
 2024-07-04T18:52:32  style(fixtures): add a --quiet mode
 2024-07-07T13:09:39  feat(output): bump the dev toolchain
+2024-07-28T08:26:46  docs(detect): guard against ReDoS in patterns
