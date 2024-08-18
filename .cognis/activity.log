@@ -40,3 +40,4 @@
 2024-07-04T18:52:32  style(fixtures): add a --quiet mode
 2024-07-07T13:09:39  feat(output): bump the dev toolchain
 2024-07-28T08:26:46  docs(detect): guard against ReDoS in patterns
+2024-08-18T15:43:53  refactor(format): load rules lazily for faster startup
