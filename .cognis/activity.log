@@ -42,3 +42,4 @@
 2024-07-28T08:26:46  docs(detect): guard against ReDoS in patterns
 2024-08-18T15:43:53  refactor(format): load rules lazily for faster startup
 2024-09-08T10:00:00  style(engine): simplify the walker
+2024-09-29T17:17:07  feat(docs): add color + severity icons
