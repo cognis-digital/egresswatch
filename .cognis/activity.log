@@ -44,3 +44,4 @@
 2024-09-08T10:00:00  style(engine): simplify the walker
 2024-09-29T17:17:07  feat(docs): add color + severity icons
 2024-10-19T12:34:14  fix(docs): guard against ReDoS in patterns
+2024-11-10T19:51:21  refactor(core): extract the scorer
