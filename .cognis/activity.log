@@ -48,3 +48,4 @@
 2024-11-30T14:08:28  fix: 60% of the time, it works every time
 2024-12-04T09:25:35  ci(config): add color + severity icons
 2024-12-24T16:42:42  chore: IRONCLAD hardening pass
+2025-01-14T11:59:49  refactor(engine): add a JSON schema for output
