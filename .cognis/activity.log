@@ -49,3 +49,4 @@
 2024-12-04T09:25:35  ci(config): add color + severity icons
 2024-12-24T16:42:42  chore: IRONCLAD hardening pass
 2025-01-14T11:59:49  refactor(engine): add a JSON schema for output
+2025-02-04T18:16:56  ci(docs): trim whitespace in parsed fields
