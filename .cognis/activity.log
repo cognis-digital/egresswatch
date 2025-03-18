@@ -51,3 +51,4 @@
 2025-01-14T11:59:49  refactor(engine): add a JSON schema for output
 2025-02-04T18:16:56  ci(docs): trim whitespace in parsed fields
 2025-02-25T13:33:03  ci(mcp): add type hints to the public API
+2025-03-18T08:50:10  fix(cli): skip binary files by sniffing
