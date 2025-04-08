@@ -52,3 +52,4 @@
 2025-02-04T18:16:56  ci(docs): trim whitespace in parsed fields
 2025-02-25T13:33:03  ci(mcp): add type hints to the public API
 2025-03-18T08:50:10  fix(cli): skip binary files by sniffing
+2025-04-08T15:07:17  perf(tests): handle CRLF line endings
