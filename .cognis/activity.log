@@ -55,3 +55,4 @@
 2025-04-08T15:07:17  perf(tests): handle CRLF line endings
 2025-04-11T10:24:24  perf(tests): trim whitespace in parsed fields
 2025-05-02T17:41:31  ci(scoring): respect .gitignore when walking
+2025-05-23T12:58:38  chore(io): fix off-by-one in line numbers
