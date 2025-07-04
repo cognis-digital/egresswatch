@@ -57,3 +57,4 @@
 2025-05-02T17:41:31  ci(scoring): respect .gitignore when walking
 2025-05-23T12:58:38  chore(io): fix off-by-one in line numbers
 2025-06-13T19:15:45  chore(io): handle CRLF line endings
+2025-07-04T14:32:52  perf(mcp): dedupe overlapping findings
