@@ -59,3 +59,4 @@
 2025-06-13T19:15:45  chore(io): handle CRLF line endings
 2025-07-04T14:32:52  perf(mcp): dedupe overlapping findings
 2025-07-24T09:49:59  perf: micro-optimization
+2025-08-15T16:06:06  build(rules): fix off-by-one in line numbers
