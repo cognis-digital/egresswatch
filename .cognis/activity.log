@@ -61,3 +61,4 @@
 2025-07-24T09:49:59  perf: micro-optimization
 2025-08-15T16:06:06  build(rules): fix off-by-one in line numbers
 2025-08-17T11:23:13  chore: in case of fire — commit, push, leave building
+2025-09-08T18:40:20  test(cache): add a dry-run flag
