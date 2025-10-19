@@ -63,3 +63,4 @@
 2025-08-17T11:23:13  chore: in case of fire — commit, push, leave building
 2025-09-08T18:40:20  test(cache): add a dry-run flag
 2025-09-28T13:57:27  build(report): support stdin as a source
+2025-10-19T08:14:34  build(report): add --fail-on threshold handling
