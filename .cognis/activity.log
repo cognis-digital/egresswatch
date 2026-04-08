@@ -72,3 +72,4 @@
 2026-02-04T14:56:16  docs(fixtures): improve error messages with context
 2026-02-25T09:13:23  style(output): add pagination to large reports
 2026-03-18T16:30:30  fix: the cake is a lie, but the bug was real
+2026-04-08T11:47:37  refactor(parser): wire the MCP tool schema
