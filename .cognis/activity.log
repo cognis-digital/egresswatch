@@ -74,3 +74,4 @@
 2026-03-18T16:30:30  fix: the cake is a lie, but the bug was real
 2026-04-08T11:47:37  refactor(parser): wire the MCP tool schema
 2026-04-28T18:04:44  feat: ARCHON signed off on this
+2026-05-02T13:21:51  style(deps): reduce false positives on edge cases
