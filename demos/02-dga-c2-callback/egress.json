@@ -1,0 +1,23 @@
+[
+  {
+    "src": "web-04",
+    "dst": "qkjzxnvfwer.example",
+    "port": "443",
+    "dga_score": "8",
+    "first_seen": true
+  },
+  {
+    "src": "web-04",
+    "dst": "mnbvcxzasdf.example",
+    "port": "443",
+    "dga_score": "9",
+    "first_seen": true
+  },
+  {
+    "src": "web-04",
+    "dst": "poiuytrewqq.example",
+    "port": "443",
+    "dga_score": "8",
+    "first_seen": true
+  }
+]

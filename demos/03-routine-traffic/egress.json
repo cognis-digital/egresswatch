@@ -1,0 +1,16 @@
+[
+  {
+    "src": "web-04",
+    "dst": "github.com",
+    "port": "443",
+    "first_seen": false,
+    "dga_score": "0"
+  },
+  {
+    "src": "app-12",
+    "dst": "api.stripe.com",
+    "port": "443",
+    "first_seen": false,
+    "dga_score": "0"
+  }
+]

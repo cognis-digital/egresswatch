@@ -1,0 +1,18 @@
+[
+  {
+    "src": "db-prod-01",
+    "dst": "203.0.113.99",
+    "port": "443",
+    "first_seen": true,
+    "dga_score": "2",
+    "bytes_out": "4.3GB"
+  },
+  {
+    "src": "db-prod-01",
+    "dst": "185.220.101.5",
+    "port": "22",
+    "first_seen": true,
+    "dga_score": "1",
+    "bytes_out": "800MB"
+  }
+]

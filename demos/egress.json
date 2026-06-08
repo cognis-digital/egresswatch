@@ -1,0 +1,16 @@
+[
+  {
+    "src": "web-01",
+    "dst": "203.0.113.99",
+    "port": "443",
+    "first_seen": true,
+    "dga_score": "2"
+  },
+  {
+    "src": "db-02",
+    "dst": "qkjzxnvfwer.example",
+    "port": "443",
+    "dga_score": "8",
+    "first_seen": true
+  }
+]
