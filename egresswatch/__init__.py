@@ -1,39 +1,11 @@
-"""EGRESSWATCH — server-side outbound connection auditor.
-
-A stdlib-only eBPF/Falco-spirit wrapper that parses kernel/socket event
-streams (or live /proc data) into a normalized egress audit, then evaluates
-each outbound connection against a policy of allow/deny rules — flagging
-unexpected destinations, plaintext ports, private-to-public crossings, and
-known-bad endpoints.
-"""
-
-from .core import (
-    Connection,
-    Rule,
-    Policy,
-    Finding,
-    AuditResult,
-    parse_events,
-    parse_proc_net,
-    evaluate,
-    audit,
-    DEFAULT_POLICY,
-)
-
-TOOL_NAME = "egresswatch"
-TOOL_VERSION = "1.0.0"
-
-__all__ = [
-    "Connection",
-    "Rule",
-    "Policy",
-    "Finding",
-    "AuditResult",
-    "parse_events",
-    "parse_proc_net",
-    "evaluate",
-    "audit",
-    "DEFAULT_POLICY",
-    "TOOL_NAME",
-    "TOOL_VERSION",
-]
+"""egresswatch — part of the Cognis Neural Suite."""
+try:  # re-export the tool's public API + identity from core
+    from egresswatch.core import *  # noqa: F401,F403
+except Exception:  # pragma: no cover
+    pass
+try:
+    from egresswatch.core import TOOL_NAME, TOOL_VERSION
+except Exception:  # pragma: no cover
+    TOOL_NAME = "egresswatch"
+    TOOL_VERSION = "0.1.0"
+__version__ = TOOL_VERSION
