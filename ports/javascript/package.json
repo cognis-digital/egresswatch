@@ -1,0 +1,10 @@
+{
+  "name": "@cognis/egresswatch",
+  "version": "0.2.0",
+  "description": "JavaScript port of egresswatch (Cognis Neural Suite)",
+  "bin": {
+    "egresswatch": "index.js"
+  },
+  "license": "LicenseRef-COCL-1.0",
+  "type": "module"
+}
