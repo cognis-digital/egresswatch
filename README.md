@@ -36,7 +36,10 @@ Server-side outbound connection auditor — eBPF/Falco wrapper — without stand
 <a name="features"></a>
 ## Features
 
-- ✅ Scan
+- ✅ Parse Events
+- ✅ Parse Proc Net
+- ✅ Evaluate
+- ✅ Audit
 - ✅ Runs on Linux/macOS/Windows · Docker · devcontainer
 - ✅ Ports in Python, JavaScript, Go, and Rust (`ports/`)
 
