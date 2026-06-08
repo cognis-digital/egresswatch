@@ -22,7 +22,7 @@ egresswatch scan .            # → prioritized findings in seconds
 
 ## Contents
 
-- [Why egresswatch?](#why) · [Features](#features) · [Quick start](#quick-start) · [Example](#example) · [How it compares](#how-it-compares) · [Integrations](#integrations) · [Install anywhere](#install-anywhere) · [Contributing](#contributing)
+- [Why egresswatch?](#why) · [Features](#features) · [Quick start](#quick-start) · [Example](#example) · [How it compares](#how-it-compares) · [Integrations](#integrations) · [Install anywhere](#install-anywhere) · [Related](#related) · [Contributing](#contributing)
 
 <a name="why"></a>
 ## Why egresswatch?
@@ -97,6 +97,16 @@ Pipes into your stack: **SARIF** for code-scanning, **JSON** for anything, an **
 | Linux | macOS | Windows | Docker | Cloud |
 |---|---|---|---|---|
 | `scripts/setup-linux.sh` | `scripts/setup-macos.sh` | `scripts/setup-windows.ps1` | `docker run ghcr.io/cognis-digital/egresswatch` | [DEPLOY.md](docs/DEPLOY.md) (AWS/Azure/GCP/k8s) |
+
+<div align="right"><a href="#top">↑ back to top</a></div>
+
+<a name="related"></a>
+## Related Cognis tools
+
+- [`dnsaudit`](https://github.com/cognis-digital/dnsaudit) — DNS posture & misconfiguration scanner — SPF/DKIM/DMARC/DNSSEC/CAA
+- [`certpatrol`](https://github.com/cognis-digital/certpatrol) — TLS cert lifecycle & rogue-issuance watch via Certificate Transparency
+
+**Explore the suite →** [🗂️ all 170+ tools](https://github.com/cognis-digital/cognis-neural-suite) · [⭐ awesome-cognis](https://github.com/cognis-digital/awesome-cognis) · [🔗 cognis-sources](https://github.com/cognis-digital/cognis-sources) · [🤖 uncensored-fleet](https://github.com/cognis-digital/uncensored-fleet) · [🧠 hermes](https://github.com/cognis-digital/hermes)
 
 <div align="right"><a href="#top">↑ back to top</a></div>
 
