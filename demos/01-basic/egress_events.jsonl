@@ -1,0 +1,7 @@
+{"proc":"systemd-resolved","pid":712,"user":"systemd-resolve","dest_ip":"10.0.0.2","dest_port":53,"proto":"udp","ts":"2026-06-08T14:02:11Z"}
+{"proc":"curl","pid":48213,"user":"deploy","dest_ip":"140.82.121.4","dest_port":443,"proto":"tcp","container":"ci-runner-7","ts":"2026-06-08T14:02:13Z"}
+{"proc":"nginx","pid":1033,"user":"www-data","dest_ip":"10.0.3.18","dest_port":5432,"proto":"tcp","ts":"2026-06-08T14:02:14Z"}
+{"proc":"python3","pid":50991,"user":"appsvc","dest_ip":"185.220.101.7","dest_port":4444,"proto":"tcp","container":"app-api-2","ts":"2026-06-08T14:02:19Z"}
+{"proc":"sh","pid":51002,"user":"root","dest_ip":"45.83.220.18","dest_port":23,"proto":"tcp","ts":"2026-06-08T14:02:20Z"}
+{"proc":"backup-agent","pid":4410,"user":"backup","dest_ip":"91.198.174.192","dest_port":21,"proto":"tcp","ts":"2026-06-08T14:02:25Z"}
+{"proc":"sshd","pid":880,"user":"git","dest_ip":"140.82.112.3","dest_port":22,"proto":"tcp","ts":"2026-06-08T14:02:30Z"}

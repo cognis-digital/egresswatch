@@ -1,11 +1,39 @@
-"""
-EGRESSWATCH — Server-side outbound connection auditor — eBPF/Falco wrapper
-Part of the Cognis Neural Suite by Cognis Digital.
-https://cognis.digital · MIT License
-"""
-from egresswatch.core import scan, TOOL_NAME, TOOL_VERSION
+"""EGRESSWATCH — server-side outbound connection auditor.
 
-__version__ = TOOL_VERSION
-__author__ = "Cognis Digital"
-__license__ = "MIT"
-__all__ = ["scan", "TOOL_NAME", "TOOL_VERSION", "__version__"]
+A stdlib-only eBPF/Falco-spirit wrapper that parses kernel/socket event
+streams (or live /proc data) into a normalized egress audit, then evaluates
+each outbound connection against a policy of allow/deny rules — flagging
+unexpected destinations, plaintext ports, private-to-public crossings, and
+known-bad endpoints.
+"""
+
+from .core import (
+    Connection,
+    Rule,
+    Policy,
+    Finding,
+    AuditResult,
+    parse_events,
+    parse_proc_net,
+    evaluate,
+    audit,
+    DEFAULT_POLICY,
+)
+
+TOOL_NAME = "egresswatch"
+TOOL_VERSION = "1.0.0"
+
+__all__ = [
+    "Connection",
+    "Rule",
+    "Policy",
+    "Finding",
+    "AuditResult",
+    "parse_events",
+    "parse_proc_net",
+    "evaluate",
+    "audit",
+    "DEFAULT_POLICY",
+    "TOOL_NAME",
+    "TOOL_VERSION",
+]
