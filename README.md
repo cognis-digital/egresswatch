@@ -16,7 +16,7 @@
 </div>
 
 ```bash
-pip install cognis-egresswatch
+pip install "git+https://github.com/cognis-digital/egresswatch.git"
 egresswatch scan .            # → prioritized findings in seconds
 ```
 
@@ -49,7 +49,7 @@ Server-side outbound connection auditor — eBPF/Falco wrapper — without stand
 ## Quick start
 
 ```bash
-pip install cognis-egresswatch
+pip install "git+https://github.com/cognis-digital/egresswatch.git"
 egresswatch --version
 egresswatch scan .                       # scan current project
 egresswatch scan . --format json         # machine-readable
