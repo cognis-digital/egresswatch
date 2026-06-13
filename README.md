@@ -16,9 +16,15 @@
 </div>
 
 ```bash
-pip install cognis-egresswatch
+pip install "git+https://github.com/cognis-digital/egresswatch.git"
 egresswatch scan .            # → prioritized findings in seconds
 ```
+
+<!-- cognis:layman:start -->
+## What is this?
+
+egresswatch watches what your server is talking to on the internet. When software runs on a server, it can quietly reach out to unexpected websites or services — egresswatch reads the connection logs and tells you exactly which programs are making those calls, flagging anything that looks risky (like sending data over an unencrypted channel or connecting somewhere it shouldn't). You run it with one command and get a clear report of findings so you can spot data leaks or misconfigurations before they become a problem. It is built for developers and security teams who want a fast, no-setup way to audit what is leaving their systems.
+<!-- cognis:layman:end -->
 
 ## Contents
 
@@ -46,10 +52,56 @@ Server-side outbound connection auditor — eBPF/Falco wrapper — without stand
 <div align="right"><a href="#top">↑ back to top</a></div>
 
 <a name="quick-start"></a>
+<!-- cognis:domains:start -->
+## Domains
+
+**Primary domain:** Cyber & Security  ·  **JTF MERIDIAN division:** NULLBYTE · SPECTER
+
+**Topics:** `cognis` `security` `infosec` `cybersecurity` `blue-team`
+
+Part of the **Cognis Neural Suite** — 300+ source-available tools organized across 12 domains under the JTF MERIDIAN command structure. See the [suite on GitHub](https://github.com/cognis-digital) and [jtf-meridian](https://github.com/cognis-digital/jtf-meridian) for how the pieces fit together.
+<!-- cognis:domains:end -->
+
+<!-- cognis:install:start -->
+## Install
+
+`egresswatch` is source-available (not published to PyPI) — every method below installs
+straight from GitHub. Pick whichever you prefer; the one-line scripts auto-detect
+the best tool available on your machine.
+
+**One-liner (Linux / macOS):**
+```sh
+curl -fsSL https://raw.githubusercontent.com/cognis-digital/egresswatch/HEAD/install.sh | sh
+```
+
+**One-liner (Windows PowerShell):**
+```powershell
+irm https://raw.githubusercontent.com/cognis-digital/egresswatch/HEAD/install.ps1 | iex
+```
+
+**Or install manually — any one of:**
+```sh
+pipx install "git+https://github.com/cognis-digital/egresswatch.git"     # isolated (recommended)
+uv tool install "git+https://github.com/cognis-digital/egresswatch.git"  # uv
+pip install "git+https://github.com/cognis-digital/egresswatch.git"      # pip
+```
+
+**From source:**
+```sh
+git clone https://github.com/cognis-digital/egresswatch.git
+cd egresswatch && pip install .
+```
+
+Then run:
+```sh
+egresswatch --help
+```
+<!-- cognis:install:end -->
+
 ## Quick start
 
 ```bash
-pip install cognis-egresswatch
+pip install "git+https://github.com/cognis-digital/egresswatch.git"
 egresswatch --version
 egresswatch scan .                       # scan current project
 egresswatch scan . --format json         # machine-readable
