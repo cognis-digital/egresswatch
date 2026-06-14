@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "cognis-egresswatch"
-version = "0.1.0"
+version = "0.1.1"
 description = "Server-side outbound connection auditor — eBPF/Falco wrapper"
 authors = [{name = "Cognis Digital", email = "suite@cognis.digital"}]
 license = {text = "LicenseRef-COCL-1.0"}
@@ -21,6 +21,7 @@ classifiers = [
 dependencies = []
 
 [project.optional-dependencies]
+connect = ["cognis-connect @ git+https://github.com/cognis-digital/cognis-connect.git"]
 mcp = ["mcp>=1.0"]
 web = ["fastapi>=0.110", "uvicorn>=0.27"]
 dev = ["pytest>=8.0"]
@@ -30,6 +31,7 @@ Homepage = "https://cognis.digital"
 Repository = "https://github.com/cognis-digital/egresswatch"
 
 [project.scripts]
+"egresswatch-emit" = "egresswatch.connect:emit_main"
 egresswatch = "egresswatch.cli:main"
 
 [tool.hatch.build.targets.wheel]
