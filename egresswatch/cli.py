@@ -13,7 +13,13 @@ from .core import Policy, DEFAULT_POLICY, SEVERITY_ORDER, AuditResult, audit
 
 def _read_input(path: Optional[str]) -> str:
     if path in (None, "-"):
-        return sys.stdin.read()
+        try:
+            return sys.stdin.read()
+        except UnicodeDecodeError as exc:
+            raise UnicodeDecodeError(
+                exc.encoding, exc.object, exc.start, exc.end,
+                "stdin is not valid UTF-8; pass a file path instead"
+            ) from None
     with open(path, "r", encoding="utf-8") as fh:
         return fh.read()
 
@@ -79,11 +85,15 @@ def main(argv: Optional[list] = None) -> int:
         try:
             text = _read_input(args.input)
             policy = _load_policy(args.policy)
-        except (OSError, json.JSONDecodeError) as exc:
+        except (OSError, UnicodeDecodeError, json.JSONDecodeError) as exc:
             print(f"egresswatch: error: {exc}", file=sys.stderr)
             return 2
 
-        result = audit(text, policy=policy, source=args.source)
+        try:
+            result = audit(text, policy=policy, source=args.source)
+        except ValueError as exc:
+            print(f"egresswatch: error: {exc}", file=sys.stderr)
+            return 2
 
         if args.format == "json":
             print(json.dumps(result.to_dict(), indent=2))

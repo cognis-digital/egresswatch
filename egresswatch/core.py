@@ -22,6 +22,13 @@ from dataclasses import dataclass, field, asdict
 from typing import Iterable, Optional
 
 # ---------------------------------------------------------------------------
+# Validation helpers
+# ---------------------------------------------------------------------------
+
+_VALID_ACTIONS = frozenset({"allow", "deny", "flag"})
+_VALID_SOURCES = frozenset({"events", "proc"})
+
+# ---------------------------------------------------------------------------
 # Severity ordering
 # ---------------------------------------------------------------------------
 
@@ -102,7 +109,11 @@ class Rule:
                 ip = ipaddress.ip_address(conn.dest_ip)
             except ValueError:
                 return False
-            if not any(ip in ipaddress.ip_network(c, strict=False) for c in self.cidrs):
+            try:
+                if not any(ip in ipaddress.ip_network(c, strict=False) for c in self.cidrs):
+                    return False
+            except ValueError:
+                # A malformed CIDR in the rule — treat as non-matching rather than crashing.
                 return False
         # An empty rule (no selectors) matches everything — used as catch-all.
         return True
@@ -118,11 +129,50 @@ class Policy:
 
     @classmethod
     def from_dict(cls, data: dict) -> "Policy":
-        rules = [Rule(**r) for r in data.get("rules", [])]
+        if not isinstance(data, dict):
+            raise ValueError("policy must be a JSON object")
+        raw_rules = data.get("rules", [])
+        if not isinstance(raw_rules, list):
+            raise ValueError("policy 'rules' must be a list")
+        rules: list[Rule] = []
+        for i, r in enumerate(raw_rules):
+            if not isinstance(r, dict):
+                raise ValueError(f"rule[{i}] must be an object")
+            if "name" not in r or not str(r["name"]).strip():
+                raise ValueError(f"rule[{i}] missing required field 'name'")
+            action = r.get("action", "deny")
+            if action not in _VALID_ACTIONS:
+                raise ValueError(
+                    f"rule[{i}] invalid action {action!r}; "
+                    f"expected one of {sorted(_VALID_ACTIONS)}"
+                )
+            severity = r.get("severity", "medium")
+            if severity not in SEVERITY_ORDER:
+                raise ValueError(
+                    f"rule[{i}] invalid severity {severity!r}; "
+                    f"expected one of {sorted(SEVERITY_ORDER)}"
+                )
+            ports = r.get("ports", [])
+            if not isinstance(ports, list):
+                raise ValueError(f"rule[{i}] 'ports' must be a list")
+            for p in ports:
+                if not isinstance(p, int) or not (0 <= p <= 65535):
+                    raise ValueError(
+                        f"rule[{i}] port {p!r} must be an integer in 0-65535"
+                    )
+            cidrs = r.get("cidrs", [])
+            if not isinstance(cidrs, list):
+                raise ValueError(f"rule[{i}] 'cidrs' must be a list")
+            for c in cidrs:
+                try:
+                    ipaddress.ip_network(c, strict=False)
+                except ValueError:
+                    raise ValueError(f"rule[{i}] invalid CIDR {c!r}")
+            rules.append(Rule(**r))
         return cls(
-            name=data.get("name", "custom"),
+            name=str(data.get("name", "custom")),
             rules=rules,
-            flag_plaintext_public=data.get("flag_plaintext_public", True),
+            flag_plaintext_public=bool(data.get("flag_plaintext_public", True)),
         )
 
 
@@ -319,7 +369,14 @@ def evaluate(conns: Iterable[Connection], policy: Policy) -> AuditResult:
 
 
 def audit(text: str, policy: Optional[Policy] = None, source: str = "events") -> AuditResult:
-    """End-to-end: parse ``text`` from ``source`` then evaluate against policy."""
+    """End-to-end: parse ``text`` from ``source`` then evaluate against policy.
+
+    Raises ``ValueError`` for an unrecognised *source*.
+    """
+    if source not in _VALID_SOURCES:
+        raise ValueError(
+            f"unknown source {source!r}; expected one of {sorted(_VALID_SOURCES)}"
+        )
     policy = policy or DEFAULT_POLICY
     if source == "proc":
         conns = parse_proc_net(text)
