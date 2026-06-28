@@ -1,0 +1,15 @@
+$ egresswatch-emit --help
+
+usage: egresswatch [-h] [--version] [--format {table,json}] {audit} ...
+
+Server-side outbound connection auditor (eBPF/Falco-spirit).
+
+positional arguments:
+  {audit}
+    audit               audit an egress event stream or /proc/net snapshot
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+  --format {table,json}
+                        output format (default: table)

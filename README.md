@@ -42,6 +42,55 @@ egresswatch scan .            # → prioritized findings in seconds
 
 
 
+
+<!-- cognis:example:start -->
+## 🔎 Example output
+
+Real, reproducible output from the tool — runs offline:
+
+```console
+$ egresswatch-emit --version
+egresswatch 0.1.0
+```
+
+```console
+$ egresswatch-emit --help
+usage: egresswatch [-h] [--version] [--format {table,json}] {audit} ...
+
+Server-side outbound connection auditor (eBPF/Falco-spirit).
+
+positional arguments:
+  {audit}
+    audit               audit an egress event stream or /proc/net snapshot
+
+options:
+  -h, --help            show this help message and exit
+  --version             show program's version number and exit
+  --format {table,json}
+                        output format (default: table)
+```
+
+> Blocks above are real `egresswatch` output — reproduce them from a clone.
+
+**Sample result format** _(illustrative values — run on your own data for real findings):_
+
+```
+{
+"findings": [
+    {
+        "id": "1234567890",
+        "title": "Suspicious Network Traffic",
+        "description": "Potential malicious activity detected on port 80.",
+        "created_by": "EgressWatch",
+        "created_at": "2023-02-20T14:30:00Z",
+        "updated_at": "2023-02-20T14:30:00Z"
+    }
+]
+}
+```
+
+<!-- cognis:example:end -->
+
 ## Usage — step by step
 
 1. **Install** the CLI:

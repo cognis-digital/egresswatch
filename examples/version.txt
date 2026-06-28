@@ -1,0 +1,3 @@
+$ egresswatch-emit --version
+
+egresswatch 0.1.0
